@@ -35,24 +35,31 @@ class Counter extends React.Component{
     }
 }
 
+//lấy được state trong reducers
 const mapStateToProps = (state) => {
 	return {
 		times: state.counterReducers ? state.counterReducers : 0
 	};
 }
 
+
 const mapDispatchToProps = (dispatch) => {
 	return {
+        //map được việc dispatch action decrementAction với prop onDecrement
 		onDecrement: (step) => {
 			dispatch(decrementAction(step));
-		},
+        },
+        //tương tự ở trên
 		onIncrement: (step) => {
 			dispatch(incrementAction(step));
 		}
 	};
 }
 
+//kết nối mapDispatchToProps và mapStateToProps tới component COunter
 export default connect(
 	mapStateToProps, 
 	mapDispatchToProps
 )(Counter);
+
+//đã có thể sử dụng được 2 prop là onDecrement và onIncrement ở Counter

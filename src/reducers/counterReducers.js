@@ -1,13 +1,16 @@
 import {INCREMENT, DECREMENT} from '../actions/actionTypes';
 
-const counterReducers = (times = 0, action) => {
+//global state
+let times = 0;
+
+const counterReducers = (state = times, action) => {
     switch (action.type) {
         case INCREMENT:
-            return times + action.step;
+            return state + action.step;
         case DECREMENT:
-            return times + action.step;
+            return state + action.step;
         default:
-            return times;
+            return state;
     }
 }
 

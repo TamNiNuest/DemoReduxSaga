@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
-//redux
 import rootSaga from './sagas/rootSaga';
+//redux
+
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import myReducer from './reducers';
@@ -17,6 +17,7 @@ import createSagaMiddleware from 'redux-saga';
 //hàm này tạo ra 1 middleware nằm giữa actions và reducers trong redux
 const sagaMiddleware = createSagaMiddleware();
 
+//tạo store
 var store = createStore (
     myReducer,
     applyMiddleware(sagaMiddleware)

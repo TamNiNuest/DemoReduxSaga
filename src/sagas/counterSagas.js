@@ -9,6 +9,7 @@ function* decrement() {
     yield console.log('decrement saga')
 };
 
+//takeEvery thực thi và trả về kết quả của action được gọi
 export function* watchIncrement() {
     yield takeEvery(INCREMENT, increment)
 }
