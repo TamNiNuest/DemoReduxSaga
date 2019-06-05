@@ -11,11 +11,12 @@ class Counter extends React.Component{
     }
 
     onDecrement = () =>{
-        this.props.onDecrement(1);
+        this.props.onDecrement();
     }
     
     onIncrement = () =>{
-        this.props.onIncrement(1)
+        //console.log('haha')
+        this.props.onIncrement();
     }
 
     render() {
@@ -38,7 +39,7 @@ class Counter extends React.Component{
 //lấy được state trong reducers
 const mapStateToProps = (state) => {
 	return {
-		times: state.counterReducers ? state.counterReducers : 0
+		times: state.counterReducers.count
 	};
 }
 
@@ -50,8 +51,8 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch(decrementAction(step));
         },
         //tương tự ở trên
-		onIncrement: (step) => {
-			dispatch(incrementAction(step));
+		onIncrement: () => {
+			dispatch(incrementAction());
 		}
 	};
 }
